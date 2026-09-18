@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdocFlow Privacy Policy</title>
+  <meta name="description" content="What the AdocFlow desktop app stores on your device and where it talks to on the network.">
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #ffffff;
+      --fg: #1f2328;
+      --muted: #59636e;
+      --line: #d0d7de;
+      --accent: #4f46e5;
+      --code-bg: #f6f8fa;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0d1117;
+        --fg: #e6edf3;
+        --muted: #9198a1;
+        --line: #30363d;
+        --accent: #a5b4fc;
+        --code-bg: #161b22;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--fg);
+      font: 16px/1.7 -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    }
+    main {
+      max-width: 44rem;
+      margin: 0 auto;
+      padding: 3rem 1rem 4rem;
+    }
+    h1 { font-size: 1.75rem; line-height: 1.3; margin: 0 0 .25rem; }
+    h2 { font-size: 1.25rem; margin: 2.25rem 0 .5rem; padding-top: 1.25rem; border-top: 1px solid var(--line); }
+    h3 { font-size: 1.05rem; margin: 1.5rem 0 .25rem; }
+    p, li { margin: .5rem 0; }
+    ul { padding-left: 1.25rem; }
+    .meta { color: var(--muted); margin-bottom: 1.5rem; }
+    a { color: var(--accent); }
+    code { background: var(--code-bg); padding: .1em .35em; border-radius: 4px; font-size: .92em; }
+    table { border-collapse: collapse; width: 100%; margin: .75rem 0; font-size: .95rem; }
+    th, td { text-align: left; vertical-align: top; padding: .5rem .6rem; border-bottom: 1px solid var(--line); }
+    th { color: var(--muted); font-weight: 600; }
+    .summary {
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--accent);
+      border-radius: 6px;
+      padding: .75rem 1rem;
+      margin: 1.5rem 0;
+    }
+    .summary p { margin: .25rem 0; }
+    footer { margin-top: 3rem; color: var(--muted); font-size: .9rem; }
+  </style>
+</head>
+<body>
+<main>
+  <article>
+    <h1>AdocFlow Privacy Policy</h1>
+    <p class="meta">Effective: September 18, 2026 · Applies to: the AdocFlow desktop app for Windows (Microsoft Store and installer builds)</p>
+
+    <div class="summary">
+      <p><strong>In short.</strong> AdocFlow has no accounts and does not collect or send any information that identifies you. Your documents and settings stay on your device.</p>
+      <p>It talks to the network for two things only: sending the <strong>source text of a diagram</strong> to a diagram server so it can be rendered, and, in installer builds, <strong>checking for updates</strong>. Both are described below.</p>
+    </div>
+
+    <h2>1. What we do not collect</h2>
+    <ul>
+      <li>There is no sign-up or sign-in. The app never asks for a name, email address or other personal details.</li>
+      <li>No usage statistics, analytics, advertising identifiers or crash reports are collected or transmitted.</li>
+      <li>The content of your documents is never sent to any server the developer can read.</li>
+    </ul>
+
+    <h2>2. What is stored on your device</h2>
+    <p>The following is kept on your computer so the app can work, and is not transmitted anywhere.</p>
+    <table>
+      <thead><tr><th>Information</th><th>Purpose</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>Your AsciiDoc documents and attachments</td><td>Editing and preview</td><td>The folder you opened. The app reads and writes only folders and files you chose.</td></tr>
+        <tr><td>Workspace path and recent workspaces</td><td>Start where you left off</td><td rowspan="3">The app's local storage (WebView2 data folder)</td></tr>
+        <tr><td>Open tabs and unsaved document text</td><td>Keep your work across restarts</td></tr>
+        <tr><td>Layout, theme, preview style, diagram server URL and other settings</td><td>Remember your preferences</td></tr>
+        <tr><td>An index of titles, anchors and links in the workspace</td><td>Cross-reference suggestions, backlinks</td><td>Memory only; gone when the app closes.</td></tr>
+      </tbody>
+    </table>
+    <p>Uninstalling the app removes its local storage. Your document files are yours and are not deleted.</p>
+
+    <h2>3. Network communication</h2>
+
+    <h3>3.1 Diagram rendering (Kroki)</h3>
+    <ul>
+      <li>To draw diagrams <strong>other than Mermaid</strong> (PlantUML, Graphviz, D2 and so on), the app sends <strong>only the source text of that diagram block</strong> over HTTPS to the configured Kroki server and receives an SVG. Mermaid diagrams are rendered on your device and are not sent anywhere.</li>
+      <li>The default server is the public service at <a href="https://kroki.io" rel="noopener">https://kroki.io</a>, operated by a third party under its own policy.</li>
+      <li>You can change the server in Settings. With your own or your organisation's Kroki server, diagram text goes only there.</li>
+      <li>A document without diagram blocks sends nothing.</li>
+    </ul>
+
+    <h3>3.2 Update check (installer builds only)</h3>
+    <ul>
+      <li>Builds installed with the MSI or NSIS installer contact an update server to see whether a newer version exists. The request carries the <strong>operating system, CPU architecture and current app version</strong>, and nothing that identifies you.</li>
+      <li><strong>The Microsoft Store build has no updater.</strong> The Store handles installation and updates.</li>
+    </ul>
+
+    <h3>3.3 Everything else</h3>
+    <ul>
+      <li>The app does not fetch remote URLs written in your documents (images, links, includes) on its own, and following an external link in the preview does not open external pages inside the app.</li>
+      <li>The libraries used for preview rendering, syntax highlighting and math are bundled with the app and work offline.</li>
+    </ul>
+
+    <h2>4. File access and export</h2>
+    <ul>
+      <li>The app reads and writes only the folder you opened, the files in it, and files you open directly.</li>
+      <li>HTML and PDF export and printing happen only when you start them, and the output goes where you choose.</li>
+      <li>The clipboard is used only when you invoke a copy action.</li>
+    </ul>
+
+    <h2>5. Third-party services</h2>
+    <table>
+      <thead><tr><th>Service</th><th>Role</th><th>Data sent</th></tr></thead>
+      <tbody>
+        <tr><td>Kroki (kroki.io by default, configurable)</td><td>Rendering non-Mermaid diagrams</td><td>Diagram source text</td></tr>
+        <tr><td>Update server (installer builds only)</td><td>Version check</td><td>OS, CPU architecture, app version</td></tr>
+        <tr><td>Microsoft Store (Store build only)</td><td>Installation and updates</td><td>Governed by Microsoft's privacy statement; AdocFlow collects nothing in addition.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>6. Children</h2>
+    <p>AdocFlow collects no personal information from anyone, of any age.</p>
+
+    <h2>7. Changes</h2>
+    <p>If the way the app handles data changes, this page and its effective date will be updated. Changes are also noted in the app's release notes.</p>
+
+    <h2>8. Contact</h2>
+    <p>Questions about this policy or about how the app handles data can be sent to:</p>
+    <ul>
+      <li>Developer: Jaehyuk Kim (AdocFlow)</li>
+      <li>Email: <a href="mailto:jaehyuk.kim.jk@gmail.com">jaehyuk.kim.jk@gmail.com</a></li>
+    </ul>
+  </article>
+
+  <footer>AdocFlow · Privacy Policy</footer>
+</main>
+</body>
+</html>
